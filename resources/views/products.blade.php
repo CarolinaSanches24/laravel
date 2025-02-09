@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <section>
-        TESTE
-    </section>
-</body>
-</html>
+@extends('layouts.main')
+@section('title', 'produtos')
+@section('content')
+      <h1> Lista de produtos</h1>
+@endsection

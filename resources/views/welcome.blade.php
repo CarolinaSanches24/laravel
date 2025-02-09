@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.main')
+@section('title','Home')
+@section('content')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    </head>
-    <body>
+        <h1>Teste</h1>
         @if(10 > 5)
         <p>A condição é true</p>
         @endif
@@ -42,5 +34,4 @@
         <p>{{$loop->index}}</p>
         <p>{{$fruta}}</p>
         @endforeach
-    </body>
-</html>
+@endsection
