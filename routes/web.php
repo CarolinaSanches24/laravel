@@ -25,3 +25,11 @@ Route::get('/home/{text}',function($text){
 Route::get('/products', function(){
     return view('products');
 });
+
+Route::get('/products/{id}',function($id){
+    return view('item-product',['id'=> $id]);
+});
+
+Route::get('/products-test/{id?}', function($id = null){
+    return view('product',['id'=>$id]);
+});
