@@ -20,7 +20,7 @@ php artisan migrate:status
 ```
 ### Comando para executar migrations
 ```bash
-php artisan make:migration
+php artisan make:migration criar_tabela_usuarios
 ```
 ### Comando para reverter migrations e criar novamente
 ```bash
@@ -49,3 +49,10 @@ php artisan make:migration add_category_to_teste
 ```bash
 php artisan migrate
 ```
+
+### Comando para criar um modelo
+
+```bash
+php artisan make:model Event
+```
+![alt text](image-2.png)
