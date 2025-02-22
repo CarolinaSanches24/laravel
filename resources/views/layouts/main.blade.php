@@ -21,30 +21,45 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="collapse navbar-collapse" id="navbar">
-                <a href="/" class="navbar-brand">
-                    <img src="/img/logo.png" alt="Logo">
-                </a>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/events/create" class="nav-link">Criar eventos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/products/list-products" class="nav-link">Produtos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Entrar</a>
-                    </li>
-
-                </ul>
-            </div>
-        </nav>
-    </header>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/img/logo.png" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
+              aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <!-- Menu -->
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/events/create" class="nav-link">Criar eventos</a>
+          </li>
+          <li class="nav-item">
+            <a href="/products/list-products" class="nav-link">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a href="/" class="nav-link">Entrar</a>
+          </li>
+        </ul>
+        <!-- Formulário de busca alinhado ao lado de "Entrar" com 40px de espaço -->
+        <form class="ms-4 w-auto">
+          <div class="input-group">
+            <button type="submit" class="btn">
+              <img src="/img/search.svg" alt="Buscar">
+            </button>
+            <input type="text" name="search" id="search" class="form-control" placeholder="Busque por item ou loja">
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
 
     @yield('content') {{-- conteúdo da página de forma dinamica --}}
 
