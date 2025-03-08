@@ -38,7 +38,7 @@
             <a href="/" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="/events/create" class="nav-link">Criar eventos</a>
+            <a href="/events/create" class="nav-link">Criar Promoções</a>
           </li>
           <li class="nav-item">
             <a href="/products/list-products" class="nav-link">Produtos</a>

@@ -60,3 +60,40 @@
     outline: none;
     box-shadow: none;
 }
+
+/*Create product*/
+
+#event-create-container{
+    padding: 50px;
+    
+}
+#event-create-container form{
+  display: flex;
+  flex-direction: column;
+}
+
+#event-create-container .form-group{
+    padding: 5px;
+}
+
+#event-create-container input{
+    outline: none;
+    box-shadow: none;
+}
+#event-create-container label{
+    font-weight: bold;
+}  
+
+#event-create-container textarea{
+    font-size: 12px;
+    box-shadow: none;
+}
+#event-create-container .btn {
+    margin: 0 auto;
+    background-color: rgba(255, 0, 0, 0.541);
+}
+#event-create-container .btn:hover{
+    background-color: rgba(255, 0, 13, 0.904);
+    font-size: 18px;
+    transition: .6s;
+}
