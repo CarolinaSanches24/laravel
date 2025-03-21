@@ -7,6 +7,18 @@
     width:100px;
 }
 
+.success{
+    background-color: rgb(58, 143, 58);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 128, 0, 0.2);
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    max-width: 20rem;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
 #cards-container{
     justify-content: center ;
 }

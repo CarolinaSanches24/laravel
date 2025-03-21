@@ -15,19 +15,35 @@ class ProductController extends Controller
     }
     public function store(Request $request)
     {
-        //Criar um novo produto
 
-        $product = new Product();
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->value = $request->value;
-        // Salvar a imagem e armazenar a URL no banco
-        if ($request->hasFile('image_upload') && $request->file('image_upload')->isValid()) {
-            $imagePath = $request->file('image_upload')->store('products', 'public');
-            $product->image = $imagePath;
-        }
+    // Validação dos dados
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'value' => 'required|numeric|min:0',
+        'image_upload' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+    ]);
 
-        $product->save();
+    // Criar um novo produto
+    $product = new Product();
+    $product->name = $request->name;
+    $product->description = $request->description;
+    $product->value = $request->value;
+
+    // Salvar a imagem e armazenar a URL no banco
+    if ($request->hasFile('image_upload') && $request->file('image_upload')->isValid()) {
+        // Criar um nome único para a imagem
+        $imageName = md5($request->file('image_upload')->getClientOriginalName() . microtime()) . '.' . $request->file('image_upload')->extension();
+
+        // Salvar a imagem na pasta 'storage/app/public/products'
+        $imagePath = $request->file('image_upload')->storeAs('products', $imageName, 'public');
+
+        // Armazenar o caminho no banco de dados
+        $product->image = $imagePath;
+    }
+
+    $product->save();
+
         return redirect('/')->with('success', 'Produto criado com sucesso!');
     }
 }
