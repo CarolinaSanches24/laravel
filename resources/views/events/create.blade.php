@@ -10,6 +10,10 @@
                <input type="text" class="form-control" id="name" name="name" >
           </div>
           <div class="form-group">
+               <label for="date">Promoção Valida até:</label>
+               <input type="date" class="form-control" id="date" name="date"/>
+          </div>
+          <div class="form-group">
                <label for="description">Descrição:</label>
                <textarea type="text" class="form-control" id="description" name="description" placeholder="Informe uma breve descrição do produto"></textarea>
           </div>

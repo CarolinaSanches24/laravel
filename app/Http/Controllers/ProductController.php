@@ -27,6 +27,7 @@ class ProductController extends Controller
     // Criar um novo produto
     $product = new Product();
     $product->name = $request->name;
+    $product->date = $request->date;
     $product->description = $request->description;
     $product->value = $request->value;
     $product->items = $request->items;

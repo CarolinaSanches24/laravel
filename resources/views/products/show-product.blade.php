@@ -17,6 +17,7 @@
                         <h2 class="fw-bold mb-3">{{ $product->name }}</h2>
                         <h4>Sobre o produto</h4>
                         <p class="text-muted mb-4">{{ $product->description }}</p>
+                        <p class="card-participantes"> R${{$product->value}}</p>
                         <button class="btn btn-danger btn-lg w-100" id="product-submit">
                             <i class="bi bi-cart-plus me-2"></i> Adicionar ao carrinho
                         </button>
