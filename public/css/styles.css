@@ -138,3 +138,42 @@
     object-fit: cover;
     border-radius: 15px;
 }
+
+.promocionais-container {
+    background-color: #fff5f5;
+    border: 1px solid #ffe0e0;
+    border-radius: 16px;
+    padding: 20px 25px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.promo-title {
+    color: #d70000;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+#item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.promo-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+}
+
+.promo-icon {
+    font-size: 1.4rem;
+    color: #ff3d00;
+    margin-right: 12px;
+}
+
+.promo-text {
+    color: #333;
+}

@@ -20,6 +20,22 @@
                         <button class="btn btn-danger btn-lg w-100" id="product-submit">
                             <i class="bi bi-cart-plus me-2"></i> Adicionar ao carrinho
                         </button>
+                        <!-- Promocionais do produto -->
+                        @if(!empty($product->items))
+                        <div class="promocionais-container">
+                            <h6>Na compra do item ganhe:</h6>
+                            <ul id="item-list">
+                                
+                                @foreach($product->items as $item)
+                                <li class="promo-item">
+                                    <i class="bi bi-gift-fill promo-icon"></i>
+                                    <span class="promo-text">{{ $item }}</span>
+                                </li>
+                                @endforeach
+                                @endif
+                            </ul>
+
+                        </div>
                     </div>
                 </div>
             </div>

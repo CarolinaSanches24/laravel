@@ -14,6 +14,25 @@
                <textarea type="text" class="form-control" id="description" name="description" placeholder="Informe uma breve descrição do produto"></textarea>
           </div>
           <div class="form-group">
+               <label for="title">Adicionais</label>
+               <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Molhos">
+                    Molhos especiais
+               </div>
+               <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Bebidas">
+                    Bebidas
+               </div>
+               <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Sobremesa">
+                    Sobremesa
+               </div>
+               <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Brindes">
+                    Brindes
+               </div>
+          </div>
+          <div class="form-group">
                <label for="value">Valor:</label>
                <input type="text" class="form-control" id="value" name="value" >
           </div>

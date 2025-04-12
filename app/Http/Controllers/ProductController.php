@@ -29,6 +29,7 @@ class ProductController extends Controller
     $product->name = $request->name;
     $product->description = $request->description;
     $product->value = $request->value;
+    $product->items = $request->items;
 
     // Salvar a imagem e armazenar a URL no banco
     if ($request->hasFile('image_upload') && $request->file('image_upload')->isValid()) {

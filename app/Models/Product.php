@@ -8,4 +8,8 @@ class Product extends Model
 {
     //
     protected $fillable = ['name','description','value','image'];
+
+    protected $casts = [
+        'items' => 'array',
+    ];
 }
