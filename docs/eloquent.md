@@ -18,5 +18,15 @@ Nela vamos criar e compor o objeto baseados nos dados enviados pelo post
 
 Com o objeto formado vamos persistir os dados com **Save**
 
+### Method findOrFail
+
+- O método do laravel findOrFail serve para buscar um registro no banco de dados e caso não encontre ele lança uma exceção.
+
+### Exemplo basiso da utilização do método
+
+
+
+
+
 
 

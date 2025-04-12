@@ -46,4 +46,10 @@ class ProductController extends Controller
 
         return redirect('/')->with('success', 'Produto criado com sucesso!');
     }
+
+    public function show($id){
+        //Exibir um produto específico
+        $product = Product::findOrFail($id);
+        return view('products.show-product', ['product' => $product]);
+    }
 }

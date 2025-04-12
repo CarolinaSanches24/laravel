@@ -13,7 +13,7 @@
                     <p class="card-date">14/01/2025</p>
                     <h5 class="card-title">{{$product->name}}</h5>
                     <p class="card-participantes"> R${{$product->value}}</p>
-                    <a href="#" class="btn btn-primary">COMPRAR</a>
+                    <a href="/products/{{$product->id}}" class="btn btn-primary">COMPRAR</a>
                 </div>
             </div>
         </div>
