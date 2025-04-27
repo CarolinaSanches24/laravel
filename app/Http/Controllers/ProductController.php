@@ -61,7 +61,14 @@ class ProductController extends Controller
         $productOwner = User::where('id', $product->user_id)->first()->toArray();
         
         return view('products.show-product', ['product' => $product, 'productOwner' => $productOwner]);
+    }
 
+    public function dashboard (){
 
+        $user = auth()->user();
+
+        $products = $user->products;
+
+        return view ('products.dashboard' ,['products'=>$products]);
     }
 }

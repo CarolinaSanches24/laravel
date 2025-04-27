@@ -94,9 +94,24 @@
     </div>
   </main>
 
-  <footer>
-    <p>Carol Sanches desenvolvimento &copy; 2025</p>
-  </footer>
+  <footer class="footer mt-5 py-4 bg-dark text-white">
+    <div class="container">
+        <p class="mb-0">Carol Sanches desenvolvimento &copy; 2025</p>
+        <div class="social-links mt-3">
+            <a href="https://github.com/seu-usuario" class="text-white me-3" target="_blank" title="GitHub">
+                <i class="bi bi-github"></i>
+            </a>
+            <a href="mailto:seuemail@example.com" class="text-white me-3" target="_blank" title="E-mail">
+                <i class="bi bi-envelope-fill"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/seu-usuario" class="text-white" target="_blank" title="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script>

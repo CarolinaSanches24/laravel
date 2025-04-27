@@ -188,3 +188,34 @@
 .promo-text {
     color: #333;
 }
+
+.dashboard-title-container h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    margin-top: 50px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.btn-outline-secondary, .btn-outline-danger {
+    border-width: 10px;
+    font-weight: 500;
+}
+
+.footer {
+    background-color: #212529;
+    color: white;
+    text-align: center;
+}
+
+.footer .social-links a {
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+    text-decoration: none;  /* Remover o sublinhado */
+}
+
+.footer .social-links a:hover {
+    color: #f8f9fa;
+}
