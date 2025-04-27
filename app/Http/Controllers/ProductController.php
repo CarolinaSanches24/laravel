@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\User;
 
 class ProductController extends Controller
 {
@@ -43,6 +44,9 @@ class ProductController extends Controller
         // Armazenar o caminho no banco de dados
         $product->image = $imagePath;
     }
+
+    $user = auth()->user;
+    $product->user_id = $user->id;
 
     $product->save();
 

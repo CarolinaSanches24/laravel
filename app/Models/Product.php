@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\User;
 class Product extends Model
 {
     //
@@ -22,5 +22,9 @@ class Product extends Model
             'unaccent(name) ILIKE unaccent(?)',
             ['%' . $search . '%']
         );
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }
