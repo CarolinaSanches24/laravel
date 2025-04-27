@@ -43,9 +43,32 @@
             <li class="nav-item">
               <a href="/products/list-products" class="nav-link">Produtos</a>
             </li>
-            <li class="nav-item">
-              <a href="/" class="nav-link">Entrar</a>
-            </li>
+
+            <!-- Usuário não autenticado-->
+            @guest 
+              <li class="nav-item">
+                <a href="/login" class="nav-link">Entrar</a>
+              </li>
+              <li class="nav-item">
+                <a href="/register" class="nav-link">Cadastro</a>
+              </li>
+            @endguest
+            <!-- Usuário autenticado-->
+            @auth
+              <li class="nav-item">
+                <a href="/dashboard" class="nav-link">Dashboard</a>
+              </li>
+
+            <!-- logout -->
+              <li class="nav-item">
+                <form action="/logout" method="POST">
+                @csrf
+                <a href="/logout" class="nav-link" onclick="event.preventDefault();
+                this.closest('form').submit();">Sair</a>
+                </form>
+              </li>
+            @endauth
+           
           </ul>
           <!-- Formulário de busca alinhado ao lado de "Entrar" com 40px de espaço -->
           <form action="/" class="ms-4 w-auto" method = "GET">
