@@ -45,7 +45,7 @@ class ProductController extends Controller
         $product->image = $imagePath;
     }
 
-    $user = auth()->user;
+    $user = auth()->user();
     $product->user_id = $user->id;
 
     $product->save();
@@ -56,6 +56,12 @@ class ProductController extends Controller
     public function show($id){
         //Exibir um produto específico
         $product = Product::findOrFail($id);
-        return view('products.show-product', ['product' => $product]);
+
+        //Recupera o usuário que criou o produto
+        $productOwner = User::where('id', $product->user_id)->first()->toArray();
+        
+        return view('products.show-product', ['product' => $product, 'productOwner' => $productOwner]);
+
+
     }
 }
