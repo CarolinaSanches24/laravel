@@ -3,7 +3,12 @@
 @section('content')
 
 <div id="events-container" class="col-md-12">
+    @if($search)
+    <h1 class="events-container-title">Buscando por: {{$search}}</h1>
+    @else
     <h1 class="events-container-title">Promoções disponíveis</h1>
+    @endif
+
     <div id="cards-container" class="row">
         @foreach($events as $product)
         <div class="col-md-3">
@@ -18,11 +23,15 @@
             </div>
         </div>
         @endforeach
-        @if(count($events)==0)
-        <p>Não há promoções no momento</p>
+        @if(count($events)==0 && $search)
+            <p>Não foi possível encontrar nenhum produto com {{$search}}!
+                <a href="/">Ver todos</a>
+            </p>
+        @elseif(count($events)==0)
+            <p>Não há promoções no momento</p>
         @endif
     </div>
 </div>
 
 
-    @endsection
+@endsection

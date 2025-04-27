@@ -48,12 +48,12 @@
             </li>
           </ul>
           <!-- Formulário de busca alinhado ao lado de "Entrar" com 40px de espaço -->
-          <form class="ms-4 w-auto">
+          <form action="/" class="ms-4 w-auto" method = "GET">
             <div class="input-group">
-              <button type="submit" class="btn">
+              <button type="submit" class="btn" aria-label="Buscar" title="Buscar">
                 <img src="/img/search.svg" alt="Buscar">
               </button>
-              <input type="text" name="search" id="search" class="form-control" placeholder="Busque por item ou loja">
+              <input type="text" name="search" id="search" class="form-control" autocomplete="off" placeholder="Busque por item ou loja">
             </div>
           </form>
         </div>

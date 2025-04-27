@@ -8,11 +8,21 @@ use App\Models\Product;
 class EventController extends Controller
 {
     public function index(){
-        //Este comando busca todos os eventos no banco de dados
+
+        $search = request('search');
+
+        if($search){
+            $search = trim($search);
+            $events = Product::searchTitle($search)->get();
+
+        }else{
+        //busca todos as promoçoes no banco de dados
        $events = Product::all();
     
-       // Este comando retorna a view com os eventos
-        return view('welcome',['events' => $events]);
+        }
+    
+       // Este comando retorna a view com as promoções
+        return view('welcome',['events' => $events,'search' =>$search]);
     }
 
     public function create(){
