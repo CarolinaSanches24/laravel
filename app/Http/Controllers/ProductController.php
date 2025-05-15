@@ -71,4 +71,11 @@ class ProductController extends Controller
 
         return view ('products.dashboard' ,['products'=>$products]);
     }
+
+    public function destroy($id){
+        //Deletar um produto em especifico
+        Product::findOrFail($id)->delete();
+
+        return redirect('/dashboard')->with('success','Produto excluído com sucesso!');
+        }
 }
