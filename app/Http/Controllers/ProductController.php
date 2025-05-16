@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
+use Carbon\Carbon; 
 
 class ProductController extends Controller
 {
@@ -78,4 +79,13 @@ class ProductController extends Controller
 
         return redirect('/dashboard')->with('success','Produto excluído com sucesso!');
         }
+    
+    public function edit($id){
+        //Atualizar um produto
+        $product = Product::findOrFail($id);
+        $product->date = Carbon::parse($product->date);
+    
+
+        return view('products.update', compact('product'));
+    }
 }
