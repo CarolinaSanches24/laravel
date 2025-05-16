@@ -17,7 +17,7 @@
                 <div class="card-body text-center">
                     <h5 class="card-title">{{$product->name}}</h5>
                     <p class="card-participantes"> R${{$product->value}}</p>
-                    <p class="card-date">Promoção valida até <b>{{date("d/m/Y"),strtotime($product->date)}}</b></p>
+                    <p class="card-date">Promoção valida até <b>{{ date("d/m/Y", strtotime($product->date)) }}</b></p>
                     <a href="/products/{{$product->id}}" class="btn btn-primary">COMPRAR</a>
                 </div>
             </div>

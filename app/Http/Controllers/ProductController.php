@@ -81,11 +81,43 @@ class ProductController extends Controller
         }
     
     public function edit($id){
-        //Atualizar um produto
+        //Exibe o formulario de edição de produtos com os dados preenchidos
         $product = Product::findOrFail($id);
         $product->date = Carbon::parse($product->date);
-    
-
         return view('products.update', compact('product'));
     }
+
+    public function update(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'value' => 'required|numeric|min:0',
+        'date' => 'nullable|date',
+        'items' => 'nullable|array',
+        'image_upload' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    $product = Product::findOrFail($request->id);
+
+    $product->name = $request->name;
+    $product->description = $request->description;
+    $product->value = $request->value;
+    $product->date = $request->date;
+    $product->items = $request->items;
+
+    // Se uma nova imagem for enviada, armazena e atualiza o caminho
+    if ($request->hasFile('image_upload') && $request->file('image_upload')->isValid()) {
+        $imageName = md5($request->file('image_upload')->getClientOriginalName() . microtime()) . '.' . $request->file('image_upload')->extension();
+
+        $imagePath = $request->file('image_upload')->storeAs('products', $imageName, 'public');
+
+        $product->image = $imagePath;
+    }
+
+    $product->save();
+
+    return redirect('/dashboard')->with('success', 'Produto editado com sucesso!');
+}
+
 }
