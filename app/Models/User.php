@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Product;
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -65,7 +66,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function products(){
+    public function products()
+    {
         return $this->hasMany(Product::class);
+    }
+
+    public function joinedProducts()
+    {
+        return $this->belongsToMany(Product::class, 'product_user', 'user_id', 'product_id');
     }
 }

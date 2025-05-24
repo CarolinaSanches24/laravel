@@ -12,7 +12,7 @@
                         <img src="{{ asset('storage/' . $product->image) }}" class="product-image" alt="{{ $product->name }}">
                     </div>
 
-               
+
 
                     <!-- Informações do produto -->
                     <div class="col-12 col-md-6">
@@ -23,15 +23,23 @@
                             <i class="bi bi-shop"></i> Lojista: {{$productOwner['name']}}
                         </p>
                         <p class="card-participantes"> R${{$product->value}}</p>
-                        <button class="btn btn-danger btn-lg w-100" id="product-submit">
-                            <i class="bi bi-cart-plus me-2"></i> Adicionar ao carrinho
-                        </button>
+
+                        <form action="/products/join/{{$product->id}}" method="post">
+                            @csrf
+                            <button
+                                class="btn btn-danger btn-lg w-100"
+                                id="product-submit"
+                                onclick="product.preventDefault(); this.closest('form').submit();">
+                                <i class="bi bi-cart-plus me-2"></i> Adicionar ao carrinho
+                            </button>
+                        </form>
+
                         <!-- Promocionais do produto -->
                         @if(!empty($product->items))
                         <div class="promocionais-container">
                             <h6>Na compra do item ganhe:</h6>
                             <ul id="item-list">
-                                
+
                                 @foreach($product->items as $item)
                                 <li class="promo-item">
                                     <i class="bi bi-gift-fill promo-icon"></i>

@@ -45,33 +45,33 @@
             </li>
 
             <!-- Usuário não autenticado-->
-            @guest 
-              <li class="nav-item">
-                <a href="/login" class="nav-link">Entrar</a>
-              </li>
-              <li class="nav-item">
-                <a href="/register" class="nav-link">Cadastro</a>
-              </li>
+            @guest
+            <li class="nav-item">
+              <a href="/login" class="nav-link">Entrar</a>
+            </li>
+            <li class="nav-item">
+              <a href="/register" class="nav-link">Cadastro</a>
+            </li>
             @endguest
             <!-- Usuário autenticado-->
             @auth
-              <li class="nav-item">
-                <a href="/dashboard" class="nav-link">Dashboard</a>
-              </li>
+            <li class="nav-item">
+              <a href="/dashboard" class="nav-link">Dashboard</a>
+            </li>
 
             <!-- logout -->
-              <li class="nav-item">
-                <form action="/logout" method="POST">
+            <li class="nav-item">
+              <form action="/logout" method="POST">
                 @csrf
                 <a href="/logout" class="nav-link" onclick="event.preventDefault();
                 this.closest('form').submit();">Sair</a>
-                </form>
-              </li>
+              </form>
+            </li>
             @endauth
-           
+
           </ul>
           <!-- Formulário de busca alinhado ao lado de "Entrar" com 40px de espaço -->
-          <form action="/" class="ms-4 w-auto" method = "GET">
+          <form action="/" class="ms-4 w-auto" method="GET">
             <div class="input-group">
               <button type="submit" class="btn" aria-label="Buscar" title="Buscar">
                 <img src="/img/search.svg" alt="Buscar">
@@ -79,6 +79,13 @@
               <input type="text" name="search" id="search" class="form-control" autocomplete="off" placeholder="Busque por item ou loja">
             </div>
           </form>
+          <div class="container_buy">
+          <a href="/cart "> <i class="bi bi-cart"></i>
+            <div class="container_buy_info"> </a>
+              <p>R$ 0,00 </p>
+              <p>0 itens</p>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
@@ -96,36 +103,36 @@
 
   <footer class="footer mt-5 py-4 bg-dark text-white">
     <div class="container">
-        <p class="mb-0">Carol Sanches desenvolvimento &copy; 2025</p>
-        <div class="social-links mt-3">
-            <a href="https://github.com/seu-usuario" class="text-white me-3" target="_blank" title="GitHub">
-                <i class="bi bi-github"></i>
-            </a>
-            <a href="mailto:seuemail@example.com" class="text-white me-3" target="_blank" title="E-mail">
-                <i class="bi bi-envelope-fill"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/seu-usuario" class="text-white" target="_blank" title="LinkedIn">
-                <i class="bi bi-linkedin"></i>
-            </a>
-        </div>
+      <p class="mb-0">Carol Sanches desenvolvimento &copy; 2025</p>
+      <div class="social-links mt-3">
+        <a href="https://github.com/seu-usuario" class="text-white me-3" target="_blank" title="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+        <a href="mailto:seuemail@example.com" class="text-white me-3" target="_blank" title="E-mail">
+          <i class="bi bi-envelope-fill"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/seu-usuario" class="text-white" target="_blank" title="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </div>
     </div>
-</footer>
+  </footer>
 
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script>
-   document.addEventListener("DOMContentLoaded", function () {
-        let successMessage = document.querySelector(".success");
-        if (successMessage) {
-            setTimeout(() => {
-                successMessage.style.transition = "opacity 1s";
-                successMessage.style.opacity = "0";
-                setTimeout(() => successMessage.style.display = "none", 1000); // Aguarda animação terminar
-            }, 2000); // 2 segundos
-        }
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let successMessage = document.querySelector(".success");
+      if (successMessage) {
+        setTimeout(() => {
+          successMessage.style.transition = "opacity 1s";
+          successMessage.style.opacity = "0";
+          setTimeout(() => successMessage.style.display = "none", 1000); // Aguarda animação terminar
+        }, 2000); // 2 segundos
+      }
     });
-</script>
+  </script>
 </body>
 
 </html>

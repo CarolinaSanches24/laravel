@@ -120,4 +120,23 @@ class ProductController extends Controller
     return redirect('/dashboard')->with('success', 'Produto editado com sucesso!');
 }
 
+public function productJoin($id){
+    $user = auth ()->user();
+
+    $user->joinedProducts()->attach($id);
+
+    $product = Product::findOrFail($id);
+
+    return redirect('/dashboard')->with('success', 'Produto adicionado com sucesso ao carrinho', $product->title);
+}
+
+public function cart()
+{
+    $user = auth()->user();
+
+    $products = $user->joinedProducts; // pega os produtos do carrinho
+
+    return view('products.cart', ['products' => $products]);
+}
+
 }

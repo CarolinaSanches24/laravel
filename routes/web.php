@@ -15,3 +15,7 @@ Route::get('/products/edit/{id}', [ProductController::class,'edit'])->middleware
 Route::put('/products/update/{id}',[ProductController::class,'update'])->middleware('auth');
 
 Route::get('/dashboard',[ProductController::class,'dashboard'])->middleware('auth');
+
+Route::post('/products/join/{id}',[ProductController::class,'productJoin'])->middleware('auth');
+
+Route::get('/cart', [ProductController::class, 'cart'])->middleware('auth');

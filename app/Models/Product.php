@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 class Product extends Model
 {
-    //
     protected $fillable = ['name','description','value','image'];
 
     protected $casts = [
@@ -26,5 +25,16 @@ class Product extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function products(){
+        return $this->hasMany('App\Model\Product');
+    }
+    
+    //Essa função lista todos os produtos
+
+    public function joinedUsers()
+    {
+        return $this->belongsToMany(User::class, 'product_user', 'product_id', 'user_id');
     }
 }

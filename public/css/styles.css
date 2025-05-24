@@ -242,6 +242,32 @@
     color: #f8f9fa;
 }
 
+.container_buy {
+    display: flex;
+    align-items: center; 
+    margin: 12px 0 12px 50px;
+    gap: 10px; 
+    font-size: 16px;
+}
+
+.container_buy i {
+    font-size: 32px; 
+    color: #dc3545;  
+}
+
+.container_buy_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.2;
+}
+
+.container_buy_info p {
+    margin: 0; 
+    color: #7c7c7cf8;
+    font-family: "Helvetica";
+    font-size: 11px;
+}
 @media (max-width: 768px) {
     .img-edit-product {
         max-width: 100%;
