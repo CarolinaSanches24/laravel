@@ -19,3 +19,6 @@ Route::get('/dashboard',[ProductController::class,'dashboard'])->middleware('aut
 Route::post('/products/join/{id}',[ProductController::class,'productJoin'])->middleware('auth');
 
 Route::get('/cart', [ProductController::class, 'cart'])->middleware('auth');
+
+Route::get('/cart/count', [ProductController::class, 'countProducts'])->middleware('auth');
+Route::get('/cart/total', [ProductController::class, 'sumProductsValues'])->middleware('auth');

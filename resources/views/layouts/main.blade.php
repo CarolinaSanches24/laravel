@@ -80,11 +80,13 @@
             </div>
           </form>
           <div class="container_buy">
-          <a href="/cart "> <i class="bi bi-cart"></i>
-            <div class="container_buy_info"> </a>
-              <p>R$ 0,00 </p>
-              <p>0 itens</p>
-            </div>
+            <a href="/cart" class="d-flex align-items-center text-decoration-none text-dark">
+              <i class="bi bi-cart fs-4"></i>
+              <div class="container_buy_info ms-2">
+                <p id="cart-total" class="mb-0 fw-bold">R$ 0,00</p>
+                <p id="cart-count" class="mb-0 small text-muted">0 itens</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -132,6 +134,28 @@
         }, 2000); // 2 segundos
       }
     });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Requisições para contar e somar
+    fetch("/cart/count")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("cart-count").textContent = `${data.total_items} item${data.total_items !== 1 ? 's' : ''}`;
+      });
+
+    fetch("/cart/total")
+      .then(res => res.json())
+      .then(data => {
+        const formatted = new Intl.NumberFormat('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        }).format(data.total_value);
+
+        document.getElementById("cart-total").textContent = formatted;
+      });
+  });
+
+
   </script>
 </body>
 

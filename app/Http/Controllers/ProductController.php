@@ -134,9 +134,33 @@ public function cart()
 {
     $user = auth()->user();
 
-    $products = $user->joinedProducts; // pega os produtos do carrinho
+    $products = $user->joinedProducts; 
 
     return view('products.cart', ['products' => $products]);
+}
+
+
+//Calcular a o valor total do carrinho
+
+public function sumProductsValues(){
+    $user = auth()->user();
+
+    $total = $user->joinedProducts->sum('value');
+
+    return response()->json([
+        'total_value' => $total
+    ]);
+
+}
+
+//Contar a quantidade de produtos no carrinho
+
+public function countProducts()
+{
+    $user = auth()->user();
+    $count = $user->joinedProducts->count();
+
+    return response()->json(['total_items' => $count]);
 }
 
 }
