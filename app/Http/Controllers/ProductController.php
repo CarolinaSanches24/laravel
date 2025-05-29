@@ -70,7 +70,10 @@ class ProductController extends Controller
 
         $products = $user->products;
 
-        return view ('products.dashboard' ,['products'=>$products]);
+        $productsOwners = $user->productsOwners;
+
+        return view ('products.dashboard' ,
+        ['products'=>$products, 'productsOwners'=>$productsOwners]);
     }
 
     public function destroy($id){
