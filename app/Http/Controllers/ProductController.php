@@ -68,12 +68,10 @@ class ProductController extends Controller
 
         $user = auth()->user();
 
-        $products = $user->products;
-
-        $productsOwners = $user->productsOwners;
-
-        return view ('products.dashboard' ,
-        ['products'=>$products, 'productsOwners'=>$productsOwners]);
+        $products = $user->products; // produtos que eu cadastrei
+        $productsJoined = $user->joinedProducts()->with('users')->get();
+    
+        return view('products.dashboard', compact('products', 'productsJoined'));
     }
 
     public function destroy($id){
@@ -85,8 +83,13 @@ class ProductController extends Controller
     
     public function edit($id){
         //Exibe o formulario de edição de produtos com os dados preenchidos
+        $user = auth()->user();
         $product = Product::findOrFail($id);
         $product->date = Carbon::parse($product->date);
+        //Se não for dono do produto não pode editar
+        if($user->id != $product->user_id){
+            return redirect('/dashboard');
+        }
         return view('products.update', compact('product'));
     }
 

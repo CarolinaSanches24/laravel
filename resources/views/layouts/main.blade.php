@@ -40,9 +40,6 @@
             <li class="nav-item">
               <a href="/events/create" class="nav-link">Criar Produtos</a>
             </li>
-            <li class="nav-item">
-              <a href="/products/list-products" class="nav-link">Produtos</a>
-            </li>
 
             <!-- Usuário não autenticado-->
             @guest

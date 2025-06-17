@@ -23,18 +23,21 @@ class Product extends Model
         );
     }
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    // 🔗 Dono do produto (um para muitos)
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
+
+    // 🔗 Usuários que compraram esse produto (muitos para muitos)
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'product_user');
+    }
+
 
     public function products(){
         return $this->hasMany('App\Model\Product');
     }
     
-    //Essa função lista todos os produtos
-
-    public function joinedUsers()
-    {
-        return $this->belongsToMany(User::class, 'product_user', 'product_id', 'user_id');
-    }
 }
