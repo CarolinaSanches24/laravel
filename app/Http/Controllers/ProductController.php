@@ -58,10 +58,28 @@ class ProductController extends Controller
         //Exibir um produto específico
         $product = Product::findOrFail($id);
 
+        $user = auth()->user();
+        $hasUserJoined = false;
+
+        if($user){
+            $userProducts = $user->joinedProducts->toArray();
+           
+            foreach($userProducts as $userProduct){
+                if($userProduct['id']== $id){
+                    $hasUserJoined = true;
+
+                }
+            }
+
+        }
+
         //Recupera o usuário que criou o produto
         $productOwner = User::where('id', $product->user_id)->first()->toArray();
         
-        return view('products.show-product', ['product' => $product, 'productOwner' => $productOwner]);
+        return view('products.show-product',
+         ['product' => $product,
+          'productOwner' => $productOwner,
+          'hasUserJoined' => $hasUserJoined]);
     }
 
     public function dashboard (){
@@ -134,6 +152,20 @@ public function productJoin($id){
     $product = Product::findOrFail($id);
 
     return redirect('/dashboard')->with('success', 'Produto adicionado com sucesso ao carrinho', $product->title);
+}
+
+public function productRemove($id){
+
+    $user = auth () ->user();
+
+    $user->joinedProducts()->detach($id);
+
+    $product = Product::findOrFail($id);
+
+    echo $product;
+
+        return redirect('/dashboard')->with('success','Produto removido com sucesso!');
+
 }
 
 public function cart()

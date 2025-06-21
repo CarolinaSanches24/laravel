@@ -23,7 +23,8 @@
                             <i class="bi bi-shop"></i> Lojista: {{$productOwner['name']}}
                         </p>
                         <p class="card-participantes"> R${{$product->value}}</p>
-
+                        
+                        @if(!$hasUserJoined)
                         <form action="/products/join/{{$product->id}}" method="post">
                             @csrf
                             <button
@@ -33,6 +34,10 @@
                                 <i class="bi bi-cart-plus me-2"></i> Adicionar ao carrinho
                             </button>
                         </form>
+                        @else
+                        <p class="already-joined-msg">Você já adicionou esse tipo de produto no carrinho!</p>
+                        @endif
+                        
 
                         <!-- Promocionais do produto -->
                         @if(!empty($product->items))

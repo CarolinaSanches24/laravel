@@ -18,6 +18,8 @@ Route::get('/dashboard',[ProductController::class,'dashboard'])->middleware('aut
 
 Route::post('/products/join/{id}',[ProductController::class,'productJoin'])->middleware('auth');
 
+Route::delete('/products/remove/{id}',[ProductController::class,'productRemove'])->middleware('auth');
+
 Route::get('/cart', [ProductController::class, 'cart'])->middleware('auth');
 
 Route::get('/cart/count', [ProductController::class, 'countProducts'])->middleware('auth');
