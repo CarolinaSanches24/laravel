@@ -9,6 +9,29 @@ use Carbon\Carbon;
 
 class ProductController extends Controller
 {
+
+    public function home(){
+
+        $search = request('search');
+
+        if($search){
+            $search = trim($search);
+            $products = Product::searchTitle($search)->get();
+
+        }else{
+        //busca todos as promoçoes no banco de dados
+       $products = Product::all();
+    
+        }
+    
+       // Este comando retorna a view com as promoções
+        return view('welcome',['products' => $products,'search' =>$search]);
+    }
+
+    public function create(){
+        return view('events.create');
+    }
+
     public function index()
     {
         //Exibir todos os produtos em cards

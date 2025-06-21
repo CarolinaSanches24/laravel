@@ -10,7 +10,7 @@
     @endif
 
     <div id="cards-container" class="row">
-        @foreach($events as $product)
+        @foreach($products as $product)
         <div class="col-md-3">
             <div class="card">
                 <img src="{{asset('storage/'.$product->image)}}" class="card-img-top" alt="{{$product->title}}">
@@ -23,11 +23,11 @@
             </div>
         </div>
         @endforeach
-        @if(count($events)==0 && $search)
+        @if(count($products)==0 && $search)
             <p>Não foi possível encontrar nenhum produto com {{$search}}!
                 <a href="/">Ver todos</a>
             </p>
-        @elseif(count($events)==0)
+        @elseif(count($products)==0)
             <p>Não há promoções no momento</p>
         @endif
     </div>
